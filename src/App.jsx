@@ -33,7 +33,7 @@ export default function App() {
 
 
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen bg-white dark:bg-gray-950">
             <AppLayout />
             <div className="bg-linear-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
                 <RouterProvider router={router} />

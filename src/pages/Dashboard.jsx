@@ -1,3 +1,4 @@
+import Candidates from "../features/dashboard/Candidates";
 import SearchAndFilter from "../features/dashboard/controls/SearchAndFilter";
 import DashboardHeader from "../features/dashboard/DashboardHeader";
 import Sort from "../features/dashboard/Sort";
@@ -8,6 +9,7 @@ export default function Dashboard() {
             <DashboardHeader />
             <SearchAndFilter />
             <Sort />
+            <Candidates />
         </div>
     )
 }
