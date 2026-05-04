@@ -1,7 +1,8 @@
 import { SlidersHorizontal } from "lucide-react";
 import { useState } from "react";
-import SearchBar from "./SearchBar";
+import ActiveFilters from "./ActiveFilters";
 import Filters from "./Filters";
+import SearchBar from "./SearchBar";
 
 export default function SearchAndFilter() {
 
@@ -22,6 +23,8 @@ export default function SearchAndFilter() {
                 </button>
             </div>
             {showFilters && <Filters />}
+            {/* active filters */}
+            <ActiveFilters />
         </div>
     )
 }

@@ -1,48 +1,6 @@
 import { Briefcase, MapPin } from "lucide-react";
 
-const candidate = {
-    "id": "c-001",
-    "fullName": "Lina Hassan",
-    "headline": "Frontend Engineer | React, TypeScript | Design Systems",
-    "location": "Cairo, Egypt",
-    "yearsOfExperience": 4,
-    "skills": ["React", "TypeScript", "CSS", "Storybook", "Accessibility", "Jest"],
-    "availability": "2 weeks",
-    "updatedAt": "2026-02-03",
-    "status": "Open to work",
-    "score": 86,
-    "summary": "Builds scalable UI component libraries and improves UX consistency across products.",
-    "languages": ["Arabic", "English"],
-    "education": "BSc Computer Engineering",
-    "links": {
-        "portfolio": "https://example.com/lina",
-        "github": "https://github.com/example-lina",
-        "linkedin": "https://linkedin.com/in/example-lina"
-    },
-    "experience": [
-        {
-            "company": "NileSoft",
-            "title": "Frontend Engineer",
-            "start": "2023-01",
-            "end": "Present",
-            "highlights": [
-                "Led adoption of design tokens and reusable components across 3 teams.",
-                "Improved Lighthouse performance from 62 to 92 on core pages."
-            ]
-        }
-    ],
-    "projects": [
-        {
-            "name": "Component Library",
-            "description": "Built a Storybook-driven library with theming and accessibility checks.",
-            "tech": ["React", "TypeScript", "Storybook"]
-        }
-    ],
-    "notes": [
-        { "date": "2026-01-25", "text": "Strong UI craftsmanship; great attention to detail." }
-    ]
-}
-export default function CandidateCard() {
+export default function CandidateCard({ candidate }) {
     const tagName = candidate.fullName.split(' ')[0][0] + candidate.fullName.split(' ')[1][0];
     return (
         <div className='bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg transition-shadow'>
