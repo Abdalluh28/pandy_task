@@ -2,13 +2,15 @@ import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import useTheme from "./context/useTheme";
 import AppLayout from "./layout/AppLayout";
+import Dashboard from "./pages/Dashboard";
 
 export default function App() {
     const { darkMode } = useTheme();
 
+    // updating the root class based on darkMode
     useEffect(() => {
         const root = document.documentElement;
-        
+
         if (darkMode) {
             root.classList.add("dark");
         } else {
@@ -16,10 +18,12 @@ export default function App() {
         }
     }, [darkMode])
 
+
+    // the main routing configuration
     const router = createBrowserRouter([
         {
             path: '/',
-            element: <h1>Dashboard</h1>
+            element: <Dashboard />
         },
         {
             path: '/profile',
@@ -31,7 +35,9 @@ export default function App() {
     return (
         <div className="min-h-screen">
             <AppLayout />
-            <RouterProvider router={router} />
+            <div className="bg-linear-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
+                <RouterProvider router={router} />
+            </div>
         </div>
     )
 }
