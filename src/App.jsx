@@ -2,7 +2,9 @@ import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import useTheme from "./context/useTheme";
 import AppLayout from "./layout/AppLayout";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./features/dashboard/Dashboard";
+import Profile from "./features/profile/Profile";
+import { Toaster } from "react-hot-toast";
 
 export default function App() {
     const { darkMode } = useTheme();
@@ -26,8 +28,8 @@ export default function App() {
             element: <Dashboard />
         },
         {
-            path: '/profile',
-            element: <h1>Profile</h1>
+            path: '/candidate/:id',
+            element: <Profile />
         }
     ])
 
@@ -38,6 +40,7 @@ export default function App() {
             <div className="bg-linear-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
                 <RouterProvider router={router} />
             </div>
+            <Toaster />
         </div>
     )
 }

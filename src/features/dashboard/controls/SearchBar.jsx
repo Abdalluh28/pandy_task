@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom";
 export default function SearchBar() {
 
     const [searchValue, setSearchValue] = useState('');
-    const [, setSearchParams] = useSearchParams();
+    const [searchParams, setSearchParams] = useSearchParams();
     // use a ref to store the debounce timeout id so that it can be cleared on each new keystroke
     const debounceRef = useRef(null);
 
@@ -35,6 +35,12 @@ export default function SearchBar() {
     const handleSearch = (e) => {
         setSearchValue(e.target.value);
     }
+
+
+    useEffect(() => {
+        const urlSearch = searchParams.get("search") || "";
+        setSearchValue(urlSearch);
+    }, [searchParams]);
 
     return (
         <div className="flex justify-center items-center relative grow">

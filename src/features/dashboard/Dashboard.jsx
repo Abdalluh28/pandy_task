@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Candidates from "../features/dashboard/Candidates";
-import SearchAndFilter from "../features/dashboard/controls/SearchAndFilter";
-import DashboardHeader from "../features/dashboard/DashboardHeader";
-import Sort from "../features/dashboard/Sort";
+import Candidates from "./Candidates";
+import SearchAndFilter from "./controls/SearchAndFilter";
+import DashboardHeader from "./DashboardHeader";
+import Sort from "./Sort";
 import { useSearchParams } from "react-router-dom";
 
 export default function Dashboard() {

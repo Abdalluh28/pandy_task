@@ -1,7 +1,11 @@
 import { Briefcase, MapPin } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function CandidateCard({ candidate }) {
     const tagName = candidate.fullName.split(' ')[0][0] + candidate.fullName.split(' ')[1][0];
+    const canMakeOffer = candidate.status.toLowerCase() !== 'not currently looking' && candidate.status.toLowerCase() !== 'rejected' && candidate.status.toLowerCase() !== 'shortlisted';
+
+    const navigate = useNavigate();
     return (
         <div className='bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg transition-shadow'>
             <div className='flex items-start gap-4 mb-4'>
@@ -36,8 +40,9 @@ export default function CandidateCard({ candidate }) {
                 </div>
             </div>
             <div className="flex items-center justify-between">
-                <p className="px-3 py-1 rounded-full text-xs font-medium border bg-green-100 dark:bg-green-950 text-green-700 dark:text-green-300 border-green-200 dark:border-green-800">{candidate.status}</p>
-                <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-sm font-medium cursor-pointer">
+                <p className={`px-3 py-1 rounded-full text-xs font-medium border ${canMakeOffer ? 'bg-green-100 dark:bg-green-950 text-green-700 dark:text-green-300 border-green-200 dark:border-green-800' : 'bg-red-100 dark:bg-red-950 text-red-700 dark:text-red-300 border-red-200 dark:border-red-800'}`}>{candidate.status}</p>
+                <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-sm font-medium cursor-pointer"
+                    onClick={() => navigate(`/candidate/${candidate.id}`)}>
                     View Profile
                 </button>
             </div>

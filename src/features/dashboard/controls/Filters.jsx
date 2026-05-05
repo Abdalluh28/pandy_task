@@ -57,6 +57,8 @@ export default function Filters() {
                 { label: "Open to offer", value: "open-to-offer" },
                 { label: "Not currently looking", value: "not-currently-looking" },
                 { label: "Interviewing", value: "interviewing" },
+                { label: "Rejected", value: "rejected" },
+                { label: "Shortlisted", value: "shortlisted" },
             ]} />
 
             {/* clear filters */}

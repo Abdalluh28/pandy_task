@@ -11,6 +11,10 @@ function getStatusCategory(status) {
 
     if (value === "interviewing") return "interviewing";
 
+    if (value === 'rejected') return 'rejected';
+
+    if (value === 'shortlisted') return 'shortlisted';
+
     return "all";
 }
 

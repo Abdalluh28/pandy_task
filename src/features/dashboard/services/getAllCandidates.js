@@ -14,10 +14,10 @@ export default async function getAllCandidates({ search, filters, sort }) {
     }
 
     // filter candidates based on search query
-    let searchResults = candidates;
+    let searchResults = JSON.parse(localStorage.getItem("candidates")) || candidates;
     if (search && search.length > 0) {
         const lowerSearch = search.toLowerCase();
-        searchResults = candidates.filter((candidate) => {
+        searchResults = searchResults.filter((candidate) => {
             return (
                 candidate.fullName.toLowerCase().includes(lowerSearch) ||
                 candidate.headline.toLowerCase().includes(lowerSearch) ||
@@ -78,6 +78,7 @@ export default async function getAllCandidates({ search, filters, sort }) {
             return new Date(b.updatedAt) - new Date(a.updatedAt);
         }
     });
+
 
     return searchResults;
 }
