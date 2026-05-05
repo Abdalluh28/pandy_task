@@ -11,7 +11,7 @@ export default function Header({ candidate }) {
     
     return (
         <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden mb-6">
-            <div className="p-6 flex items-start justify-between mb-3">
+            <div className="p-6 flex items-start justify-between mb-3 md:flex-row flex-col gap-4">
                 <div className="flex items-start gap-6">
                     <div className="w-20 h-20 bg-linear-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-semibold shrink-0">{tagName}</div>
                     <div className="space-y-2">
