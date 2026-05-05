@@ -21,7 +21,11 @@ export default function Experience({ candidate }) {
                             <div className="">
                                 <p className="text-lg font-semibold text-gray-900 dark:text-gray-100">{exp.title}</p>
                                 <p className="text-sm text-gray-500 dark:text-gray-500">{exp.start} - {exp.end}</p>
-                                <p className="text-gray-600 dark:text-gray-400">{exp.highlights}</p>
+                                <ul className="mt-2 list-disc pl-5 text-gray-600 dark:text-gray-400 space-y-1">
+                                    {exp.highlights.map((highlight, highlightIndex) => (
+                                        <li key={highlightIndex}>{highlight}</li>
+                                    ))}
+                                </ul>
                             </div>
                             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
                                 {exp.company}

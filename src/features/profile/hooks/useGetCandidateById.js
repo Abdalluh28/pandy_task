@@ -7,7 +7,7 @@ export function useGetCandidateById(id) {
         queryKey: ["candidate", id],
         retry: false,
     });
-console.log(data)
+
     return {
         candidate: data,
         error,

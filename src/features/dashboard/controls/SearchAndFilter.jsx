@@ -1,5 +1,6 @@
 import { SlidersHorizontal } from "lucide-react";
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import ActiveFilters from "./ActiveFilters";
 import Filters from "./Filters";
 import SearchBar from "./SearchBar";
@@ -7,6 +8,8 @@ import SearchBar from "./SearchBar";
 export default function SearchAndFilter() {
 
     const [showFilters, setShowFilters] = useState(false);
+    const [searchParams] = useSearchParams();
+    const searchKey = searchParams.get("search") || "empty-search";
 
     const updateFilterVisibility = () => {
         setShowFilters(prev => !prev);
@@ -15,7 +18,7 @@ export default function SearchAndFilter() {
     return (
         <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 p-6 mb-8">
             <div className="flex flex-col md:flex-row gap-4">
-                <SearchBar />
+                <SearchBar key={searchKey} />
                 <button className='flex items-center gap-2 px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-gray-700 dark:text-gray-300'
                     onClick={updateFilterVisibility}>
                     <SlidersHorizontal />

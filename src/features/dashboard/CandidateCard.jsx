@@ -2,7 +2,7 @@ import { Briefcase, MapPin } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function CandidateCard({ candidate }) {
-    const tagName = candidate.fullName.split(' ')[0][0] + candidate.fullName.split(' ')[1][0];
+    const tagName = candidate.fullName.split(' ').map(name => name[0]).join('').slice(0, 2);
     const canMakeOffer = candidate.status.toLowerCase() !== 'not currently looking' && candidate.status.toLowerCase() !== 'rejected' && candidate.status.toLowerCase() !== 'shortlisted';
 
     const navigate = useNavigate();

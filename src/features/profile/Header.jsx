@@ -6,7 +6,7 @@ import HeaderActions from "./HeaderActions";
 export default function Header({ candidate }) {
 
 
-    const tagName = candidate?.fullName?.split(' ')[0][0] + candidate?.fullName?.split(' ')[1][0];
+    const tagName = candidate?.fullName?.split(' ').map(name => name[0]).join('').slice(0, 2);
     const canMakeOffer = candidate?.status?.toLowerCase() !== 'not currently looking' && candidate?.status?.toLowerCase() !== 'rejected' && candidate?.status?.toLowerCase() !== 'shortlisted';
     
     return (
@@ -33,9 +33,9 @@ export default function Header({ candidate }) {
                         </div>
                         <div className="flex items-center gap-4 mt-4">
                             {/* links */}
-                            <LinkIcon icon={<CircleUserRound className="w-5 h-5" />} url={candidate?.portfolio} />
-                            <LinkIcon icon={<FaLinkedin className="w-5 h-5" />} url={candidate?.github} />
-                            <LinkIcon icon={<FaGithub className="w-5 h-5" />} url={candidate?.linkedin} />
+                            <LinkIcon icon={<CircleUserRound className="w-5 h-5" />} url={candidate?.links?.portfolio} />
+                            <LinkIcon icon={<FaLinkedin className="w-5 h-5" />} url={candidate?.links?.linkedin} />
+                            <LinkIcon icon={<FaGithub className="w-5 h-5" />} url={candidate?.links?.github} />
                         </div>
                     </div>
                 </div>
