@@ -1,91 +1,111 @@
-# TalentFlow
+# TalentFlow – Recruitment Frontend Assessment
 
-TalentFlow is a frontend technical assessment project for a recruitment candidate marketplace. It lets recruiters browse a candidate directory, search and filter candidates, sort by hiring signals, open profile pages, and update a candidate's status.
+TalentFlow is a recruitment marketplace interface that allows recruiters to browse, filter, and evaluate candidates efficiently.
 
-## Features
+---
 
-- Candidate dashboard at `/` with responsive cards.
-- Candidate profile page at `/candidate/:id`.
-- Search by candidate name, headline, or skills.
-- Filters for location, experience, availability, and candidate status.
-- Sorting by most recent, most experienced, and best match.
-- Loading skeletons, empty state, error state, and retry handling.
-- Candidate actions for shortlist and reject.
-- Dark mode with local persistence.
-- Mock API behavior using local JSON, simulated latency, and localStorage updates.
+## 🚀 Live Demo
 
-## Tech Stack
+https://pandy-task-chi.vercel.app/
 
-- React 19
-- Vite
-- React Router
-- TanStack React Query
-- Tailwind CSS 4
-- Lucide React and React Icons
-- React Hot Toast
-- React Loading Skeleton
-- ESLint
+---
 
-## Getting Started
-
-Install dependencies:
+## ⚙️ Setup Instructions
 
 ```bash
 npm install
-```
-
-Start the development server:
-
-```bash
 npm run dev
 ```
 
-Build for production:
+---
 
-```bash
-npm run build
-```
+## 📌 Features
 
-Preview the production build:
+* Candidate dashboard at `/`
+* Candidate profile page at `/candidate/:id`
+* Search by name, headline, and skills
+* Filters: location, experience, availability, status
+* Sorting: most recent, most experienced, best match
+* UI states:
 
-```bash
-npm run preview
-```
+  * Loading (skeletons)
+  * Empty results
+  * Error with retry
+* Candidate actions:
 
-Run lint checks:
+  * Shortlist
+  * Reject
+* Dark mode with persistence
+* Responsive design (mobile + desktop)
 
-```bash
-npm run lint
-```
+---
 
-## Project Structure
+## 🧠 Technical Focus Areas
 
-```text
-src/
-  context/              Theme provider and theme hook
-  data/                 Local candidate data
-  features/
-    dashboard/          Candidate list, search, filters, sort, states
-    profile/            Candidate profile sections and status actions
-  layout/               App shell/header
-  App.jsx               Routes and app-level providers
-  main.jsx              React entry point
-```
+This project intentionally focuses on:
 
-## Data And Persistence
+1. **URL-driven state**
 
-The initial candidate list is stored in `src/data/candidates.json`. Dashboard and profile services simulate API latency with async functions. Status changes are saved to `localStorage`, so shortlist/reject updates persist in the browser until local storage is cleared.
+   * Search, filters, and sorting are synced with query parameters
 
-The list fetch also simulates occasional request failures to exercise the error and retry UI.
+2. **Data fetching & caching**
 
-## Routes
+   * Implemented using React Query for caching and refetching
 
-- `/` - candidate recruitment dashboard.
-- `/candidate/:id` - detailed candidate profile.
+3. **Reusable component system**
 
-## Notes For Reviewers
+   * Modular UI components (cards, badges, inputs, etc.)
 
-- Query parameters drive search, filters, and sorting so the dashboard state can be reflected in the URL.
-- The app uses React Query for list/detail caching and invalidates candidate queries after status updates.
-- The UI supports light and dark themes.
-- There are no automated tests in this submission; quality checks are currently covered by ESLint and production build.
+4. **Accessibility basics**
+
+   * Semantic HTML
+   * Keyboard navigation
+   * ARIA attributes for key elements
+
+3. **Error handling**
+
+   * Retry fetching when an error occurs
+
+---
+
+## 🏗️ Architecture
+
+Feature-based architecture:
+
+* `features/dashboard` → candidate listing, filters, states
+* `features/profile` → candidate profile and actions
+* `data/` → mock data source
+* `context/` → theme handling
+* `layout/` → shared UI structure
+
+---
+
+## 📊 Data Handling
+
+* Local mock data (`candidates.json`)
+* Simulated API using async functions and artificial latency
+* Random error simulation for testing error states
+* Candidate status updates stored in `localStorage`
+
+---
+
+## 🔄 Tradeoffs & Improvements
+
+* No backend API (mock data used instead)
+* No automated tests (could add Vitest + Testing Library)
+* Pagination could be added for scalability
+* More advanced filtering (multi-select, ranges) could improve UX
+
+---
+
+## ⏰ Availability
+
+Available for interviews:
+Sunday – Thursday, 7 PM – 11 PM (GMT+3)
+
+---
+
+## 📎 Notes
+
+* Designed to simulate a real recruitment product experience
+* Focused on UI/UX clarity, performance, and clean architecture
